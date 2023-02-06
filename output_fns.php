@@ -1,5 +1,5 @@
 <?php 
-    function do_html_header($title) { ?>
+    function do_html_header($title, $meta) { ?>
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -8,23 +8,13 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>
                 <?php
-                    if($title === 'FACTURE SYSTEM'){
-                        echo $title;
-                    } else {
-                        echo $title . '| FACTURE SYSTEM';
-                    }
+                    echo !empty($meta) ? $meta . ' | FACTURE SYSTEM' : $title;
                 ?>
             </title>
         </head>
         <body>
             <header id="main-header">
-                <h1><?php
-                    if($title === 'FACTURE SYSTEM'){
-                        echo $title;
-                    } else {
-                        echo $title . '| FACTURE SYSTEM';
-                    }
-                ?></h1>
+                <h1><?php echo $title; ?></h1>
                 <hr>
             </header>
         
@@ -34,6 +24,10 @@
         echo '<footer> <hr> <p class="copy">FACTURE SYSTEM &copy; '.date('Y').'</p></footer>';
         echo '</body>';
         echo '</html>';
+    }
+
+    function do_html_URL($url, $name){
+        echo '<br><a href="'.$url.'">'.$name.'</a><br>';
     }
 
     function display_login_form() { ?>
