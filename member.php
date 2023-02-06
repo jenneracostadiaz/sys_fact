@@ -19,8 +19,7 @@
             login($username, $passwd);
             // if they are in the database register the user id
             $_SESSION['valid_user'] = $username;
-        }
-            catch(Exception $e)  {
+        } catch(Exception $e)  {
             // unsuccessful login
             do_html_header('Problem:', 'Error in Login');
             echo 'You could not be logged in.<br> You must be logged in to view this page.';
@@ -30,7 +29,7 @@
         }
     }
 
-    do_html_header('Dashboard');
+    do_html_header('Dashboard', 'Dashboard');
 
     do_html_footer();
 ?>

@@ -10,9 +10,10 @@
         $conn = db_connect();
     
         // check if username is unique
-        $result = $conn->query("select * from user
-                                where username='".$username."'
-                                and passwd = sha1('".$password."')");
+        $result = $conn->query("SELECT * FROM users
+                                WHERE Username='".$username."'
+                                AND Password = '".$password."'");
+                                // and Password = sha1('".$password."')");
         if (!$result) {
             throw new Exception('Could not log you in.');
         }
