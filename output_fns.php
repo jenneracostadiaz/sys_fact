@@ -44,4 +44,18 @@
             <button type="submit">Log In</button>
         </form>
     <?php }
+
+    function display_user_menu() { ?>
+        <ul class="user-menu">
+            <li class="iser-menu__item">
+                <a href="member.php">Home</a>
+            </li>
+            <li class="iser-menu__item">
+                <a href="change_passwd_form.php">Change password</a>
+            </li>
+            <li class="iser-menu__item">
+                <a href="logout.php">Logout</a>
+            </li>
+        </ul>
+    <?php }
 ?>

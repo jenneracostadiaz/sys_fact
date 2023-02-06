@@ -31,5 +31,8 @@
 
     do_html_header('Dashboard', 'Dashboard');
 
+    check_valid_user();
+    display_user_menu();
+
     do_html_footer();
 ?>
