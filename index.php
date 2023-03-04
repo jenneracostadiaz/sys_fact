@@ -1,10 +1,11 @@
-<?php
-    require_once('sys_fns.php');
-    do_html_header('FACTURE SYSTEM', 'Login In');
-
-    echo '<main class="container">';
-        display_login_form();
-    echo '</main>';
-
-    do_html_footer();
+<?php 
+    require __DIR__ . './functions.php';
+    session_start();
+    
+    if(!isset($_SESSION['user_id'])){
+        require __DIR__ . './layouts/pg_login.php';
+    } else {
+        
+        require __DIR__ . './layouts/pg_dashboard.php';
+    }
 ?>

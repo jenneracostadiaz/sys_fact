@@ -73,6 +73,16 @@ VALUES
 Describe systrelations;
 SELECT * FROM systrelations;
 
+-- Creacion de Vistas
+
+CREATE VIEW users_companires_rol AS-- 
+SELECT sys.UserID as UserID, u.Name, c.Name as Companie, r.Name as Rol
+FROM  systrelations AS sys
+inner join users AS u on sys.UserID = u.UserID
+inner join roles AS r on sys.RolID = r.RolID
+inner join companies AS c on sys.CompanieID = c.CompanieID
+WHERE sys.UserID = u.UserID;
+
 -- Nuevas Consultas Relacionadas
 SELECT sys.RelationID, u.Name
 FROM systrelations AS sys, users AS u
@@ -85,6 +95,15 @@ FROM systrelations AS sys, users AS u, roles AS r, companies AS c
 WHERE sys.UserID = u.UserID
 AND sys.RolID = r.RolID
 AND sys.CompanieID = c.CompanieID;
+
+-- inner Join
+SELECT sys.RelationID, u.Name, c.Name, r.Name
+FROM  systrelations AS sys
+inner join users AS u on sys.UserID = u.UserID
+inner join roles AS r on sys.RolID = r.RolID
+inner join companies AS c on sys.CompanieID = c.CompanieID
+WHERE sys.RolID between 2 and 3;
+
 
 SELECT u.Name, u.Email, c.Name
 FROM systrelations AS sys, users AS u, roles AS r, companies AS c
