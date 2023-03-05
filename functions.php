@@ -6,5 +6,6 @@
     
     /** Vistas DataBase */    
     require_once __DIR__ . '/views/datauser.php';
+    require_once __DIR__ . '/views/option_all_users.php';
     
 ?>

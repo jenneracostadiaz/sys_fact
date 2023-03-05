@@ -4,3 +4,4 @@
 ### Refactorizar
 
 * connectDB() in Login
+* Mostrar representates de la empresa a quienes se les enviará el correo
