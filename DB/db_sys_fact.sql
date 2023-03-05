@@ -75,8 +75,8 @@ SELECT * FROM systrelations;
 
 -- Creacion de Vistas
 
-CREATE VIEW users_companires_rol AS-- 
-SELECT sys.UserID as UserID, u.Name, c.Name as Companie, r.Name as Rol
+CREATE VIEW users_companires_rol AS
+SELECT sys.UserID as UserID, u.Name, c.CompanieID, c.Name as Companie, r.Name as Rol
 FROM  systrelations AS sys
 inner join users AS u on sys.UserID = u.UserID
 inner join roles AS r on sys.RolID = r.RolID
