@@ -28,3 +28,8 @@ Es un sistema fácil de envio de facturas a tus clientes
 * Refactorizar sendemail.php
 * Crear hoja de estilos
 * Crear scripts para mejor interacción
+* Refactorizar las páginas iniciales
+* Completar CRUD Companies
+* CRUD Representantes
+* Relacionar Companies, Representanes con la Vista, el Rol siempre va a ser client (3)
+* Crear un buen diseño de consulta correcta! todo ok! Insertado Correctamente!

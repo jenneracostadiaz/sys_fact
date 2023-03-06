@@ -39,6 +39,8 @@ VALUES
 ('Accountant'),
 ('Client');
 
+SELECT * FROM roles;
+
 INSERT INTO companies (RUC, Name)
 VALUES
 ('10480788911', 'Jenner.pe'),
@@ -82,6 +84,8 @@ inner join users AS u on sys.UserID = u.UserID
 inner join roles AS r on sys.RolID = r.RolID
 inner join companies AS c on sys.CompanieID = c.CompanieID
 WHERE sys.UserID = u.UserID;
+
+SELECT * FROM users_companires_rol;
 
 -- Nuevas Consultas Relacionadas
 SELECT sys.RelationID, u.Name
