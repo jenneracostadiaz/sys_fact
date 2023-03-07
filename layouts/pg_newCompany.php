@@ -30,7 +30,7 @@
             echo '<div class="alert success">Felicidades! insertaste una nueva empresa. Relacionalo con un representante para que empiece a funcionar en el sistema.</div>';
         }
     ?>
-    <form action="<?php print(sys_domain()).'/functions/create__company.php'; ?>" method="post" class="form">
+    <form action="<?php print(sys_domain()).'/functions/create_company.php'; ?>" method="post" class="form">
         <div class="form__group">
             <label for="ruc">RUC</label>
             <input name="ruc" id="ruc" type="text" minlength="11" maxlength="11" required autofocus>

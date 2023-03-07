@@ -4,9 +4,8 @@
 <main class="cotainer view-companies">
     <h1>Listado de Empresas:</h1>
     <ul class="list-view">
-        <?php 
-            $query = 'SELECT * FROM companies ORDER BY Name ASC;';
-            $result = connectDB()->query($query);
+        <?php
+            $result = connectDB()->query(query_companies());
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
                     $CompanieID = $row["CompanieID"];

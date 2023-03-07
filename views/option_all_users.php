@@ -14,4 +14,9 @@
             } 
         }
     }
+
+    function query_companies(){
+        $query = 'SELECT * FROM companies ORDER BY Name ASC;';
+        return $query;
+    }
 ?>
