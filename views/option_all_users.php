@@ -19,4 +19,19 @@
         $query = 'SELECT * FROM companies ORDER BY Name ASC;';
         return $query;
     }
+    
+    function query_users(){
+        $query = 'SELECT * FROM users ORDER BY Name ASC;';
+        return $query;
+    }
+    
+    function query_relations(){
+        $query = 'SELECT * FROM systrelations ORDER BY UserID ASC;';
+        return $query;
+    }
+    
+    function users_companires_rol(){
+        $query = 'SELECT * FROM users_companires_rol ORDER BY Name ASC;';
+        return $query;
+    }
 ?>

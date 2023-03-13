@@ -6,6 +6,7 @@
             <li class="nav__item"><a href="<?php echo sys_domain().'/new-company.php'; ?>" class="nav__item__link">Nueva Empresa</a></li>
             <li class="nav__item"><a href="<?php echo sys_domain().'/view-companies.php'; ?>" class="nav__item__link">Ver Empresas</a></li>
             <li class="nav__item"><a href="<?php echo sys_domain().'/new-agent.php'; ?>" class="nav__item__link">Nuevo Representante</a></li>
+            <li class="nav__item"><a href="<?php echo sys_domain().'/view-agents.php'; ?>" class="nav__item__link">Ver Representantes</a></li>
             <li class="nav__item"><a href="<?php echo sys_domain().'/functions/close.php'; ?>" class="nav__item__link">Cerrar Sesión</a></li>
         </ul>
     </nav>
