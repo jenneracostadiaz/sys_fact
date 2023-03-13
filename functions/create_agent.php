@@ -3,12 +3,12 @@
     require __DIR__ . '/uris.php';
     require __DIR__ . '/redirect.php';
 
-    $s_company = $_POST['s_company'];
-    $username = $_POST['username'];
-    $fullname = $_POST['fullname'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $s_company = $_POST["s_company"];
+    $username = $_POST["username"];
+    $fullname = $_POST["fullname"];
+    $phone = $_POST["phone"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
     //Valide Company
     $consult = "SELECT * FROM companies WHERE CompanieID=$s_company";
@@ -42,17 +42,15 @@
         exit;   
     }
 
-    $stmt = $connection->prepare("INSERT INTO users (Username, Name, Email, Phone, Password) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $username, $fullname, $phone, $email, $password);
-    $stmt->execute();
-
-    if (!$stmt->execute()) { 
+    $query_addUS = "INSERT INTO users (Username, Email, Password, Name, Phone) VALUES ('$username', '$email', '$password', '$fullname', '$phone')";
+    if (!mysqli_query($connection, $query_addUS)) {
         $redirect_to = sys_domain().'/new-agent.php?insert=error';
         sys_redirect( $redirect_to );
         exit;
-     }
-    
-    $consult = "SELECT ID FROM users WHERE Username=$username";
+    }
+
+
+    $consult = "SELECT * FROM users WHERE Username='$username'";
     $result = mysqli_query($connection, $consult);
     if ($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
@@ -60,21 +58,22 @@
         }
     }
 
+    
     $rolID = '3';
-
-    $r_stmt = $connection->prepare("INSERT INTO systrelations (UserID, RolID, CompanieID) VALUES (?, ?, ?)");
-    $r_stmt->bind_param("iii", $UserID, $rolID, $s_company);
-    $r_stmt->execute();
-
-    if (!$r_stmt->execute()) { 
-        $redirect_to = sys_domain().'/new-agent.php?insert=error&row=2';
-        sys_redirect( $redirect_to );
-        exit;
-     } else {
+    
+    $query_addRel = "INSERT INTO systrelations (UserID, RolID, CompanieID) VALUES ($UserID, $rolID, $s_company)";
+    
+    if (mysqli_query($connection, $query_addRel)) {
         $redirect_to = sys_domain().'/new-agent.php?insert=successfully';
         sys_redirect( $redirect_to );
         exit;
-     }
-    
+    } else {
+        $redirect_to = sys_domain().'/new-agent.php?insert=error&row=2';
+        sys_redirect( $redirect_to );
+        exit;
+    }
+
+
+    mysqli_close($connection);
     
 ?>
